@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12 d-flex justify-content-around mb-5">
+    <h2 class="text-uppercase">Список покупок</h2>
+  </div>
+</div>
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-success" (click)="saveData()">Зберегти</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-shoping-edit></app-shoping-edit>
+      <hr>
+      <ul class="list-group" id="print-section">
+        <a>
+          <li
+            class="ingredients-list shadow-sm"
+            style="cursor: pointer"
+            *ngFor="let ingredient of ingredients; let i = index"
+            (click)="onEditItem(i)">
+            {{ingredient.name}} ({{ingredient.amount}})
+          </li>
+        </a>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <button type="button" class="btn-print" (click)="printComponent('print-section')"> Друкувати
+        <fa-icon [icon]="faPrint"></fa-icon>
+      </button>
+    </div>
+  </div>
+
+</div>
+

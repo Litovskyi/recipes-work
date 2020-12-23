@@ -1,0 +1,167 @@
+<div *ngIf="recipe$ | async as recipe; else loading" class="mb-10">
+  <div class="row">
+    <div class="col-sm-12 d-flex justify-content-around">
+      <h2>{{recipe.name}}</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <hr class="hr-main">
+    </div>
+  </div>
+
+  <div class="container p-5">
+    <!--    назва рецепту-->
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-around">
+        <ngb-carousel>
+          <ng-template class="carousel-item" ngbSlide *ngFor="let img of recipe.images; let i = index;">
+            <img
+              [src]="img.path"
+              alt="{{img.path}}"
+              class="img-fluid"
+              style="max-height: 400px;  cursor: pointer"
+              (click)="showLightbox(recipe.images, i)">
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+
+    <ng-image-fullscreen-view
+      [images]="currentObj"
+      [imageIndex]="currentIndex"
+      [show]="showFlag"
+      [paginationShow]="true"
+      (close)="closeEventHandler()">
+    </ng-image-fullscreen-view>
+
+    <!--    час приготування та дата публікування-->
+    <div class="row d-flex justify-content-between mb-10">
+      <div class="col-md-6 text-secondary">
+        <fa-icon [icon]="faClock"></fa-icon>
+        {{recipe.timeOfCock}} хв.
+      </div>
+      <div class="col-md-6 text-secondary" style="text-align: end">
+        <fa-icon [icon]="faTable"></fa-icon>
+        <time> {{recipe.date | date}}</time>
+      </div>
+    </div>
+
+    <!--інгрідієнти рецепту-->
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-start text-uppercase">
+        <h4>Інгредієнти:</h4>
+      </div>
+    </div>
+    <div class="row mb-10" *ngFor="let ingredient of recipe.ingredients">
+      <div class="col-md-1">
+        <ul class="list-group">
+          <li class="ingredients-list span-count">
+            {{ingredient.amount}}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-11">
+        <ul class="list-group">
+          <li class="ingredients-list shadow-sm d-flex justify-content-between">
+            {{ingredient.name}}
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!--кроки приготування -->
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-start text-uppercase">
+        <h4>Кроки приготування:</h4>
+      </div>
+    </div>
+    <div class="row mb-10">
+      <div class="col-md-12" *ngFor="let steps of recipe.steps; let idx = index;">
+        <ul>
+          <li class="steps-list">
+            <label class="text-secondary">
+              <fa-icon class="icon-step" [icon]="faCheckDouble"></fa-icon>
+              Крок {{idx + 1}}</label><br>
+            {{steps.text}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!--    Опис рецепту-->
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-start text-uppercase">
+        <h4>Опис:</h4>
+      </div>
+    </div>
+
+    <div class="row mb-10">
+      <div class="col-md-12 d-flex justify-content-around">
+        {{recipe.description}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr class="not-main">
+      </div>
+    </div>
+
+    <!--добавляння в список покупок з списку інгрідієнтів, редагуавання рецепту та видалення-->
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-4">
+        <button
+          (click)="onAddToTheShoppingList(recipe.ingredients)"
+          type="button"
+          class="btn-SL">
+          <fa-icon [icon]="faCartPlus"></fa-icon>
+          Додати інгредієнти в список покупок
+        </button>
+      </div>
+      <div class="col-md-4 d-flex justify-content-end">
+        <button
+          [routerLink]="['/recipes/edit', recipe.id]"
+          type="button"
+          class="btn-edit">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+        <button
+          type="button"
+          class="btn-delete"
+          data-toggle="modal"
+          data-target="deletingModal"
+          (click)="open(mymodal)"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <!--  при нажатті кнопки видалення з'являється модальне вікно підтвердження видалення-->
+  <ng-template #mymodal let-modal>
+    <div class="modal-header bg-warning">
+      <h4 class="modal-title text-white" id="modal-basic-title">Увага!</h4>
+    </div>
+    <div class="modal-body">
+      Ви впевнені що хочете видалити рецепт?
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-warning" (click)="onDeleteRecipe(recipe.id); modal.dismiss('Save click')">
+        Так
+      </button>
+      <button type="button" class="btn btn-dark" (click)="modal.dismiss('Cross click')">
+        Ні
+      </button>
+    </div>
+  </ng-template>
+</div>
+
+<!--індикатор загрузки-->
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>

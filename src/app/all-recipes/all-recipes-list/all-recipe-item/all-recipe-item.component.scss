@@ -1,0 +1,43 @@
+
+.card-body{
+  border-radius: 10px;
+  border-bottom: 2px solid coral;
+  -webkit-box-shadow: 1px 7px 8px 1px rgba(0,0,0,0.11);
+  -moz-box-shadow: 1px 7px 8px 1px rgba(0,0,0,0.11);
+  box-shadow: 1px 7px 8px 1px rgba(0,0,0,0.11);
+}
+
+.btn-coral{
+  text-align: center;
+  margin: 0 3rem;
+  display: inline-block;
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  color: white;
+  padding: .45em 1em;
+  border-radius: 5px;
+  border: 0;
+  font-weight: 500;
+  letter-spacing: .2px;
+  transition: transform 250ms ease,
+  box-shadow 250ms ease;
+  &:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 34px 0 rgba(255, 79,135, 0.32);
+  }
+}
+time{
+  font-size: 13px;
+  margin-top: -10px;
+}
+.camp{
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  line-height: 25px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+}
+

@@ -1,0 +1,145 @@
+.row {
+  margin-bottom: 15px;
+}
+
+button .close {
+  outline: none;
+}
+
+.container {
+  -webkit-box-shadow: 0px 0px 10px -1px rgba(230, 230, 230, 1);
+  -moz-box-shadow: 0px 0px 10px -1px rgba(230, 230, 230, 1);
+  box-shadow: 0px 0px 10px -1px rgba(230, 230, 230, 1);
+  border-radius: 10px;
+
+  border-bottom: 5px solid;
+  border-image-source: linear-gradient(45deg, #ff5f6d, #ffc371);
+  border-image-slice: 1;
+}
+
+.hr-main {
+  max-width: 100px;
+  height: 2px;
+  background-color: coral;
+  border-radius: 5px;
+}
+
+button {
+  font-size: 1.3rem;
+  outline: none;
+  transition: transform 250ms ease,
+  box-shadow 250ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.btn-edit {
+  background-color: transparent;
+  text-decoration: none;
+  border: 0;
+  color: gray;
+}
+
+.btn-edit:hover {
+  color: lightskyblue;
+}
+
+.btn-delete {
+  background-color: transparent;
+  text-decoration: none;
+  border: 0;
+  color: gray;
+}
+
+.btn-delete:hover {
+  color: lightcoral;
+}
+
+.btn-SL {
+
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px 20px;
+  font-size: 1.1rem;
+  border: 0;
+
+}
+.btn-SL:focus{
+  transform: scale(0.98);
+}
+
+.not-main {
+  max-width: 90%;
+  height: 0.5px;
+  background: coral;
+}
+
+.steps-list {
+  list-style: none;
+  font-weight: 500;
+}
+
+.mb-10 {
+  margin-bottom: 30px;
+}
+
+img {
+  border-bottom: 7px solid;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-image-source: linear-gradient(45deg, #ff5f6d, #ffc371);
+  border-image-slice: 1;
+  opacity: 0.9;
+  width: 600px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.custom-badge {
+  height: 30px;
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  color: white;
+}
+
+.ingredients-list {
+  padding: 12px;
+}
+
+.span-count {
+  height: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  color: white;
+  text-align: center;
+}
+
+.col-md-11 {
+  padding: 0;
+
+}
+
+.col-md-1 {
+  padding: 0;
+}
+
+.icon-step {
+  color: coral;
+}
+::ng-deep .carousel-item {
+  display: block !important;
+  position: absolute;
+  transform: translateX(100%);
+  opacity: 0;
+  transition:all  1s;
+}
+
+::ng-deep .carousel-item.active {
+  position: relative;
+  transform: translateX(0);
+  opacity: 1;
+  top: 0;
+}

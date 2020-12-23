@@ -7,18 +7,38 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "emulate": "ng build --c=emulator && firebase emulators:start",
+    "quick-emulate": "firebase emulators:start"
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.1.0",
     "@angular/animations": "~8.2.13",
     "@angular/common": "~8.2.13",
     "@angular/compiler": "~8.2.13",
     "@angular/core": "~8.2.13",
+    "@angular/fire": "^6.0.0",
     "@angular/forms": "~8.2.13",
+    "@angular/google-maps": "^9.2.4",
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
+    "@angular/youtube-player": "^9.2.4",
+    "@fortawesome/angular-fontawesome": "^0.6.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@ng-bootstrap/ng-bootstrap": "^5.3.1",
+    "angular": "^1.7.9",
+    "angularfire2": "^5.4.2",
+    "bootstrap": "^4.4.1",
+    "firebase": "^7.15.1",
+    "firebase-admin": "^9.4.1",
+    "firebase-functions": "^3.11.0",
+    "font-awesome": "^4.7.0",
+    "ng-bootstrap": "^1.6.3",
+    "ng-image-fullscreen-view": "^1.0.3",
+    "ngx-pagination": "^5.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -28,9 +48,9 @@
     "@angular/cli": "~8.3.18",
     "@angular/compiler-cli": "~8.2.13",
     "@angular/language-service": "~8.2.13",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -42,6 +62,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "^3.4.5"
   }
 }

@@ -1,0 +1,58 @@
+.btn-coral {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 1px solid lightcoral;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: lightcoral;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: white;
+}
+
+.btn-coral:hover {
+  color: #ffffff;
+  background-color: lightcoral;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  border: 0;
+}
+
+button:hover {
+  color: coral;
+}
+
+button:focus {
+  outline: none;
+}
+
+input[type=search] {
+  border: 0;
+  border-radius: 5px;
+  width: 500px;
+  min-width: 200px;
+  padding: 8px;
+  border-left: 2px solid coral;
+  border-right: 2px solid coral;
+  outline: none !important;
+  background-color: #fafafa;
+
+}
+
+
+input::placeholder {
+  color: lightgray;
+}
+
+
+
+
+

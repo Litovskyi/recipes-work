@@ -1,0 +1,98 @@
+<div class="leader">
+
+
+  <section>
+    <div class="row main bg-white" *ngIf="!isLoading; else loading">
+      <div class="col-md-12 wrap">
+        <div class="alert alert-danger" *ngIf="error">
+          <p>{{error}}</p>
+        </div>
+        <div class="row" [hidden]="!isLoginMode">
+          <div class="col-md-12 d-flex justify-content-around">
+            <img
+              src="https://cdn.icon-icons.com/icons2/1554/PNG/512/3419295-diet-fruit-mango-orange-vegetable_107412.png"
+              alt="">
+          </div>
+        </div>
+        <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+          <div class="row ">
+            <div class="col-md-12 d-flex justify-content-start text-uppercase">
+              <h2>{{isLoginMode ? 'Вхід' : 'Реєстрація'}}</h2>
+
+            </div>
+
+          </div>
+          <hr [hidden]="isLoginMode">
+          <div class="form-group" [hidden]="isLoginMode">
+            <label for="displayName">Логін</label>
+            <input
+              type="name"
+              id="displayName"
+              class="form-control"
+              ngModel
+              [required]="!isLoginMode"
+              name="displayName">
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              ngModel
+              required
+              name="email"
+              email
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="password">Пароль</label>
+            <input
+              name="password"
+              type="password"
+              id="password"
+              class="form-control"
+              ngModel
+              required
+              minlength="6"
+            >
+          </div>
+          <div class="row" [hidden]="isLoginMode">
+            <div class="col-md-12">
+              <p> <span class="black-80">Примітка: </span> Ваша електронна адреса буде додана до метаданих пакунків, які ви публікуєте, тому її можна буде бачити загальнодоступно.</p>
+            </div>
+          </div>
+          <div class="row" [hidden]="isLoginMode">
+            <div class="col-md-12">
+              <p class="black-70">Ваш пароль повинен містити щонайменше <span class="black-80">6</span> символів.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div>
+                <button class="btn submit" type="submit" [disabled]="!authForm.valid">
+                  {{isLoginMode ? 'Вхід' : 'Створити аккаунт'}}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 d-flex justify-content-around">
+              <div>
+                <a (click)="onSwitchMode()" type="button">
+                  {{isLoginMode ? 'Реєстрація' : 'чи, Вхід'}}
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+  <ng-template #loading>
+    <app-loading-spinner></app-loading-spinner>
+  </ng-template>
+</div>

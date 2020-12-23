@@ -1,0 +1,51 @@
+.btn-add {
+  border: 2px solid;
+  border-image-source: linear-gradient(45deg, #ff5f6d, #ffc371);
+  border-image-slice: 1;
+  color: coral;
+  transition: all 0.2s ease;
+}
+
+.btn-add:hover {
+  background: #fafafa;
+}
+
+.btn-save {
+  background-color: lightskyblue;
+  padding: 5px 50px;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #7BBAE1;
+}
+input {
+  border: 0;
+  border-bottom: 2px solid;
+  border-image-source: linear-gradient(45deg, #7BBAE1, #87CEFA);
+  border-image-slice: 1;
+  outline: none !important;
+  background: #fefefe;
+}
+
+input:focus, input:active {
+  outline: none;
+  background-color: #fafafa;
+}
+
+.custom-delete {
+  background-color: transparent;
+  border: 0;
+  color: lightgray;
+  transition: transform 250ms ease,
+  box-shadow 250ms ease;
+
+&:hover {
+   transform: translateY(-3px);
+ }
+}
+
+.custom-delete:hover {
+  color: #ff5f6d;
+  transform: translateY(-3px);
+}

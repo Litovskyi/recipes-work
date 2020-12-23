@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12 d-flex justify-content-between">
+    <input
+      type="search"
+      id="search-box"
+      class="mr-2"
+      [(ngModel)]="searchStr"
+      placeholder="Шукати шефів... "/>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div
+    *ngIf="famousRecipe$ | async as famousRecipes; else loading">
+  </div>
+  <app-item-famous
+    class="col-sm-6"
+    *ngFor="let recipeFa of famousRecipe$ | async | famousSearch: searchStr"
+    [famousRecipe]="recipeFa">
+  </app-item-famous>
+  <ng-template #loading>
+    <app-loading-spinner></app-loading-spinner>
+  </ng-template>
+</div>
+

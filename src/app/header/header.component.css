@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
+
+li {
+  font-size: 1.15rem;
+}
+
+span {
+  font-family: 'Kelly Slab', cursive;
+}
+
+.log-btn {
+  text-align: center;
+  padding: -7px 10px;
+  border-radius: 5px;
+}
+
+.log-btn:hover {
+  text-underline: black;
+}
+
+.orange-80 {
+  color: #fb8817;
+}
+
+.navbar {
+  border-width: 10px 0 0;
+  border-top-style: solid;
+  -o-border-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff) 3;
+  border-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff) 3;
+}
+

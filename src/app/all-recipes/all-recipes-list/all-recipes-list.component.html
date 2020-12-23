@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12 d-flex justify-content-between">
+    <input
+      type="search"
+      id="search-box"
+      class="mr-2"
+      [(ngModel)]="searchStr"
+      placeholder="Пошук рецептів..."/>
+    <button class="btn-coral" routerLink="/new">
+      <fa-icon [icon]="faPlus"></fa-icon>
+      Новий рецепт
+    </button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div
+    *ngIf="recipes$ | async as recipes; else loading">
+  </div>
+  <app-all-recipe-item
+    *ngFor="let recipeEl of recipes$ | async | searchRecipes: searchStr | paginate:{itemsPerPage: 5, currentPage: p}"
+    [recipe]="recipeEl"
+    class="col-sm-4">
+  </app-all-recipe-item>
+  <ng-template #loading>
+    <app-loading-spinner></app-loading-spinner>
+  </ng-template>
+</div>
+<div class="row mt-3 mb-3">
+  <div class="col-md-12 d-flex justify-content-around">
+    <pagination-controls
+      class="my-pagination"
+      (pageChange)="p = $event"
+      previousLabel="Попередні"
+      nextLabel="Наступні"
+      responsive="true"
+      autoHide="true"></pagination-controls>
+  </div>
+</div>

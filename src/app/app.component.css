@@ -1,0 +1,9 @@
+.main {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 68%;
+  min-height: 100vh;
+}

@@ -1,0 +1,34 @@
+<div *ngIf="famousRecipe$ | async as famousRecipe; else loading;">
+  <div class="row mt-5">
+    <div class="col-md-12 text-center">
+      <h2 class="text-uppercase">{{famousRecipe.famous}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p>{{famousRecipe.about}}</p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div
+      *ngIf="famousRecipe$ | async as recipes; else loading">
+    </div>
+    <div *ngFor="let videos of famousRecipe.videos" class="col-sm-4">
+      <youtube-player
+        videoId="{{videos.path}}"
+        [height]="200"
+        [width]="350">
+      </youtube-player>
+    </div>
+    <ng-template #loading>
+      <app-loading-spinner></app-loading-spinner>
+    </ng-template>
+  </div>
+</div>
+
+
+<!--індикатор загрузки-->
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>

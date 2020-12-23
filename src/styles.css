@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700|Work+Sans:100,200,300,400,500,600');
+
+body {
+  font-family: 'Josefin', sans-serif;
+  background-color: #F7F7F7;
+}
+
+.ingredients-list {
+  padding: 1rem 1rem 1rem 3rem;
+  border-radius: 5px;
+  list-style: none;
+}
+
+/*стилі для іконки загрузки*/
+
+.alert-wrap {
+  position: fixed;
+  padding: 10px;
+  bottom: 50px;
+  right: 50px;
+
+}
+

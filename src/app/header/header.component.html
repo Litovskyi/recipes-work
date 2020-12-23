@@ -1,0 +1,57 @@
+
+<nav class="navbar shadow-sm navbar-expand-lg navbar-light p-3 mb-3 bg-white rounded sticky-top" style="opacity: .97">
+
+  <a class="navbar-brand" routerLink="/" style="cursor: pointer;">
+     Книга<span class="orange-80 text-uppercase">рецептів</span></a>
+  <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler border-0" type="button" data-toggle="collapse"
+          data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse"
+    id="navbarNav"
+    [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav ml-lg-auto d-flex justify-content-start" style="max-height: 100%">
+
+      <li class="nav-item" routerLinkActive="active" (click)="isCollapsed = true">
+        <a class="nav-link " style="color: #FCBD11" routerLink="/famous-recipe">
+          <fa-icon [icon]="faCrown"></fa-icon>
+          Відомі шефи</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" (click)="isCollapsed = true">
+        <a class="nav-link" routerLink="/all-recipes">
+          <fa-icon [icon]="faAllRecipes"></fa-icon>
+          Всі рецепти</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated" (click)="isCollapsed = true">
+        <a class="nav-link" routerLink="/recipes">
+          <fa-icon [icon]="faPizza"></fa-icon>
+          Мої рецепти</a>
+      </li>
+
+
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated" (click)="isCollapsed = true">
+        <a class="nav-link" routerLink="/shopping-list">
+          <fa-icon [icon]="faShoppingBasket"></fa-icon>
+          Список покупок
+        </a>
+      </li>
+      <li class="nav-item log-btn" routerLinkActive="active" *ngIf="!isAuthenticated" (click)="isCollapsed = true">
+        <a class="nav-link" routerLink="/auth">
+          <fa-icon [icon]="faUser"></fa-icon>
+          Вхід
+        </a>
+      </li>
+      <li class="nav-item log-btn" routerLinkActive="active" ngbDropdown *ngIf="isAuthenticated" >
+        <a class="nav-link" style="cursor: pointer" ngbDropdownToggle>
+          <fa-icon [icon]="faUser"></fa-icon>
+          {{displayName}}
+        </a>
+          <div ngbDropdownMenu (click)="isCollapsed = true">
+            <button ngbDropdownItem (click)="logout()" >Вихід</button>
+          </div>
+      </li>
+    </ul>
+  </div>
+</nav>

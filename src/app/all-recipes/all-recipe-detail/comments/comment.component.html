@@ -1,0 +1,65 @@
+<div class="container">
+  <form (ngSubmit)="toComment()">
+    <div class="row">
+      <div class="col-md-3 text-uppercase">
+        <h2>Коментарі</h2>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-md-10">
+        <div class="form-group" [formGroup]="formGroup">
+        <textarea
+          [disabled]="!isAuthenticated"
+          type="text"
+          class="form-control"
+          formControlName="content"
+          rows="3"
+          placeholder="Коментувати..."></textarea>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <button [disabled]="isLoading && !isAuthenticated" class="btn btn-secondary" type="submit">
+          <span *ngIf="isLoading" class="spinner-border text-white"></span>
+          {{isLoading ? '' : 'Коментувати'}}</button>
+      </div>
+    </div>
+    <div class="row bg-danger text-white p-1 text-center" *ngIf="!isAuthenticated">
+      <div class="col-md-12">
+        <p class="text-uppercase">Щоб мати змогу писати коментарі необхідно авторизуватись!</p>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="row mt-3" *ngFor="let comments of comments$ | async">
+  <div *ngIf="comments$ | async as comments; else loading">
+  </div>
+  <div class="col-md-12 shadow-sm p-3">
+
+    <div class="row">
+      <div class="col-md-6 d-flex justify-content-start text-secondary">
+        <small>
+          <fa-icon [icon]="faUser"></fa-icon>
+          {{comments.displayName}}</small>
+      </div>
+      <div class="col-md-6 d-flex justify-content-end text-secondary">
+        <time>
+          <fa-icon [icon]="faTable"></fa-icon>
+          {{comments.date | date: 'medium'}}</time>
+      </div>
+    </div>
+
+    <div class="row mt-3 pr-2 pl-2">
+      <div class="col-md-12">
+        <p>{{comments.content}}</p>
+      </div>
+    </div>
+
+  </div>
+  <ng-template #loading>
+    <app-loading-spinner></app-loading-spinner>
+  </ng-template>
+
+</div>
+

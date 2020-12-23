@@ -1,0 +1,33 @@
+<div class="card shadow-sm mb-2 border-0">
+  <img [src]="recipe.images[0].path" alt="{{recipe.name}}" class="card-img-top">
+  <div class="card-body">
+    <h4 class="card-title">{{recipe.name}}</h4>
+
+    <div class="row">
+      <div class="col-md-6 text-secondary">
+        <fa-icon [icon]="faClock"></fa-icon>
+        {{recipe.timeOfCock}} хв.
+      </div>
+      <div class="col-md-6 text-secondary" style="text-align: end">
+        {{recipe.date | date}}
+        <fa-icon [icon]="faTable"></fa-icon>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-secondary">
+        <fa-icon [icon]="faUser"></fa-icon> {{recipe.userName}}
+      </div>
+    </div>
+    <hr/>
+    <div class="card-text d-flex justify-content-around">
+      <p class="camp">{{recipe.description}}</p>
+    </div>
+    <div class="card-footer border-0 bg-transparent d-flex justify-content-center text-center">
+      <button class="btn btn-coral" [routerLink]="['/all-recipes', recipe.id]">Детальніше</button>
+    </div>
+  </div>
+</div>
+
+
+
+

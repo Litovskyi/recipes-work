@@ -1,0 +1,200 @@
+<div class="row">
+  <div class="col-md-12 d-flex justify-content-around mb-5">
+    <h2 class="text-uppercase">Редагувати рецепт</h2>
+  </div>
+</div>
+<div class="container p-5" *ngIf="formGroup; else loading">
+
+  <!--  форма для створення або редагування рецепту-->
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-end">
+            <button type="button" class="btn btn-danger" (click)="onCancel()">Відмінити</button>
+          </div>
+        </div>
+        <!--        Назва рецепту-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="name" class="text-uppercase">Назва</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                formControlName="name">
+            </div>
+          </div>
+        </div>
+
+        <!--        URL картинки-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group" formArrayName="images">
+              <label for="images" class="text-uppercase">URL картинки</label>
+              <div class="row" *ngFor="let imagesCtl of controlsImages; let i = index"
+                   [formGroupName]="i">
+                <div class="col-md-7">
+                  <input
+                    type="text"
+                    id="images"
+                    class="form-control"
+                    formControlName="path"
+                    #imagePath>
+                </div>
+                <div class="col-md-2">
+                  <button
+                    class="btn custom-delete"
+                    (click)="onDeleteImage(i)">
+                    <fa-icon [icon]="faDelete"></fa-icon>
+                  </button>
+                </div>
+                <!--        картинка рецепту-->
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <img [src]="imagePath.value" style="max-width: 100px" class="img-fluid">
+                  </div>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn btn-add" (click)="onAddImages()">Додати картинку</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!--        опис рецепту-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="description" class="text-uppercase">Опис</label>
+              <textarea
+                type="text"
+                id="description"
+                class="form-control"
+                rows="6"
+                formControlName="description"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!--кількість хвилин для приготування рецепту-->
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label for="timeOfCock" class="text-uppercase">Час приготування </label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="timeOfCock"
+                id="timeOfCock">
+            </div>
+
+          </div>
+        </div>
+
+        <!--інгрідієнти рецепту -->
+        <div class="row">
+          <div class="col-md-12 form-group" formArrayName="ingredients">
+            <label class="text-uppercase">Інгредієнти</label>
+            <div
+              class="row mb-2"
+              *ngFor="let ingredientCtrl of controlsIngredients; let i = index"
+              [formGroupName]="i"
+            >
+              <!--              кількість продуктів-->
+              <div class="col-md-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="amount"
+                  placeholder="Amount">
+              </div>
+              <!--              назва продуктів-->
+              <div class="col-md-7">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                  placeholder="Name">
+              </div>
+              <div class="col-md-2">
+                <button
+                  class="btn custom-delete"
+                  (click)="onDeleteIngredient(i)">
+                  <fa-icon [icon]="faDelete"></fa-icon>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-add" (click)="onAddIngredient()">
+                  <fa-icon [icon]="faPlus"></fa-icon>
+                  Додати інгредієнт
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--        кількість кроків для приготування -->
+        <div class="row">
+          <div class="col-md-12 form-group" formArrayName="steps">
+            <label class="text-uppercase">Кроки приготування</label>
+            <div
+              class="row mb-2"
+              *ngFor="let stepCtrl of controlsSteps; let a = index"
+              [formGroupName]="a"
+            >
+              <!--              текст -->
+              <div class="col-md-10">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  formControlName="text"
+                  placeholder="Text...">
+                </textarea>
+              </div>
+              <div class="col-md-2">
+                <button
+                  class="custom-delete"
+                  (click)="onDeleteStep(a)">
+                  <fa-icon [icon]="faDelete"></fa-icon>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-add" (click)="onAddSteps()">
+                  <fa-icon [icon]="faPlus"></fa-icon>
+                 Додати кроки приготування
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-around">
+            <button
+              type="submit"
+              class="btn btn-save"
+              [disabled]="!formGroup.valid"> Зберегти
+              <fa-icon [icon]="faSave"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>

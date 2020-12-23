@@ -1,0 +1,72 @@
+.row h2 {
+  font-size: 3em;
+}
+
+input.ng-invalid,
+textarea.ng-invalid {
+  border: 1px solid red;
+}
+
+.container {
+  -webkit-box-shadow: 0px 0px 10px -1px rgba(230, 230, 230, 1);
+  -moz-box-shadow: 0px 0px 10px -1px rgba(230, 230, 230, 1);
+  box-shadow: 0px 0px 10px -1px rgba(230, 230, 230, 1);
+  border-radius: 10px;
+}
+
+label {
+  font-weight: 500;
+}
+
+input {
+  border: 0;
+  border-bottom: 2px solid;
+  border-image-source: linear-gradient(45deg, #ff5f6d, #ffc371);
+  border-image-slice: 1;
+  outline: none !important;
+  background: #fefefe;
+}
+
+input:focus, input:active {
+  outline: none;
+  background-color: #fafafa;
+}
+
+.custom-delete {
+  background-color: transparent;
+  border: 0;
+  color: lightgray;
+  transition: transform 250ms ease,
+  box-shadow 250ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.btn-save {
+  background-color: lightskyblue;
+  padding: 5px 50px;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #7BBAE1;
+}
+
+.custom-delete:hover {
+  color: #ff5f6d;
+  transform: translateY(-3px);
+}
+
+.btn-add {
+  border: 2px solid;
+  border-image-source: linear-gradient(45deg, #ff5f6d, #ffc371);
+  border-image-slice: 1;
+  color: coral;
+  transition: all 0.2s ease;
+}
+
+.btn-add:hover {
+  background: #fafafa;
+}

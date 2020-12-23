@@ -1,0 +1,58 @@
+[debug] [2020-12-07T11:14:51.663Z] ----------------------------------------------------------------------
+[debug] [2020-12-07T11:14:51.667Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Anrij\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start --only database
+[debug] [2020-12-07T11:14:51.667Z] CLI Version:   8.16.2
+[debug] [2020-12-07T11:14:51.667Z] Platform:      win32
+[debug] [2020-12-07T11:14:51.668Z] Node Version:  v10.16.3
+[debug] [2020-12-07T11:14:51.669Z] Time:          Mon Dec 07 2020 13:14:51 GMT+0200 (GMT+02:00)
+[debug] [2020-12-07T11:14:51.669Z] ----------------------------------------------------------------------
+[debug] [2020-12-07T11:14:51.669Z] 
+[debug] [2020-12-07T11:14:51.686Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-07T11:14:51.687Z] > authorizing via signed-in user
+[info] i  emulators: Starting emulators: database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: database"}}
+[debug] [2020-12-07T11:14:53.757Z] [hub] writing locator at C:\Users\Anrij\AppData\Local\Temp\hub-recipe-work-b1ba6.json
+[debug] [2020-12-07T11:14:55.795Z] database rules config:  [{"instance":"recipe-work-b1ba6","rules":"C:\\Users\\Anrij\\Dropbox\\recipes-work\\database.rules.json"}]
+[debug] [2020-12-07T11:14:55.802Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2020-12-07T11:14:55.802Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2020-12-07T11:14:55.802Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2020-12-07T11:14:55.803Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\Anrij\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.7.1.jar","--host","localhost","--port",9000],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\Anrij\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.7.1.jar\",\"--host\",\"localhost\",\"--port\",9000],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2020-12-07T11:14:58.035Z] WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/C:/Users/Anrij/.cache/firebase/emulators/firebase-database-emulator-v4.7.1.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release {"metadata":{"emulator":{"name":"database"},"message":"WARNING: An illegal reflective access operation has occurred\r\nWARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/C:/Users/Anrij/.cache/firebase/emulators/firebase-database-emulator-v4.7.1.jar) to field sun.nio.ch.SelectorImpl.selectedKeys\r\nWARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil\r\nWARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations\r\nWARNING: All illegal access operations will be denied in a future release"}}
+[debug] [2020-12-07T11:14:58.035Z] 
+ {"metadata":{"emulator":{"name":"database"},"message":"\r\n"}}
+[debug] [2020-12-07T11:14:59.566Z] 13:14:59.562 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"13:14:59.562 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\r\n"}}
+[debug] [2020-12-07T11:14:59.903Z] 13:14:59.902 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"13:14:59.902 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000\r\n"}}
+[debug] [2020-12-07T11:15:04.511Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2020-12-07T11:15:04.511Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2020-12-07T11:15:04.512Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\Anrij\\.cache\\firebase\\emulators\\ui-v1.2.2\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\Anrij\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.2.2\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2020-12-07T11:15:04.894Z] Web / API server started at http://localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at http://localhost:4000\n"}}
+[debug] [2020-12-07T11:15:05.052Z] >>> HTTP REQUEST PUT http://localhost:9000/.settings/rules.json?ns=recipe-work-b1ba6  
+ {
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+
+[debug] [2020-12-07T11:15:06.002Z] <<< HTTP RESPONSE 200 {"content-length":"15","content-type":"application/json; charset=utf-8","access-control-allow-origin":"*","cache-control":"no-cache","x-firebase-project-id":"recipe-work-b1ba6","x-firebase-project-number":"123456789","x-firebase-uuid":"5ad9323b-0c95-4e4b-a564-9fc4010995ca"}
+[info] 
+┌────────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! View status and logs at localhost:4000 │
+└────────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┬─────────────────────────┐
+│ Emulator │ Host:Port      │ View in Emulator UI     │
+├──────────┼────────────────┼─────────────────────────┤
+│ Database │ localhost:9000 │ localhost:4000/database │
+└──────────┴────────────────┴─────────────────────────┘
+  Other reserved ports: 4400, 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
